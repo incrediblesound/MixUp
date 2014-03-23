@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  div.container
+    div.row
+      a.pull-left(href='/info' class='btn btn-default') Privacy
+      a.pull-right(href='/logout' class='btn btn-default') Log Out
+      img.center-block(src='/images/title.png' height='50' width='500')
+      hr
+      div.row
+        div.col-md-6
+          p.lead Enter your text:
+          form(method='post' action='/create')
+            div.form-group
+              label(for='text')
+              textarea(name='text' class='form-control' rows='10' cols='40')
+            div.form-group
+              input(type='submit' class='btn btn-success form-control' value='CHANGE')
+        div.col-md-6
+          p= text
+          - if(text)
+            a(class='btn btn-default' href='/postit') Post to Facebook
